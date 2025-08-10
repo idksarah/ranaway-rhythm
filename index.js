@@ -4,9 +4,18 @@ const beatB = [5, 6, 8, 9, 11]
 
 const beatC = [5, 6, 8, 9]
 
+let imagesA = []
+let imagesB = []
+let imagesC = []
+
 let beatAindex = 0;
 let beatBindex = 0;
 let beatCindex = 0;
+
+const MAX_TIME = 5;
+const DISPLACEMENT_MULTIPLIER = 500;
+const STARTING_POINT = -500;
+let lineIndex = 0;
 
 let scoreA = 0;
 let scoreB = 0;
@@ -29,7 +38,6 @@ function incrementScoreC(amount) {
 incrementScoreA(1);
 incrementScoreB(2); 
 incrementScoreC(3);
-
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -60,6 +68,42 @@ document.addEventListener('click', () => {
 
 // Loop
 
+function makeBeatImg() {
+    var img = document.createElement("img");
+    img.src="./beat.png";
+    var src = document.getElementById("music");
+    img.style.position = 'absolute';
+    src.append(img);
+    return img
+}
+
+for (let i = 0; i < beatA.length; i++){
+    img = makeBeatImg()
+    img.id = `imgA${i}`;
+    imagesA[i] = img;
+} 
+for (let i = 0; i < beatA.length; i++){
+    img = makeBeatImg()
+    img.id = `imgB${i}`;
+    imagesB[i] = img;
+}
+for (let i = 0; i < beatA.length; i++){
+    img = makeBeatImg()
+    img.id = `imgC${i}`;
+    imagesC[i] = img;
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key == 'w') { // w
+        console.log('left');
+    }
+    if (event.code == 'Space'){ // space
+        console.log('middle');
+    } 
+    if (event.key == 'ArrowUp'){ // top arrow
+        console.log('right');
+    }
+})
 
 let loop = () => {
     //console.log(audioContext.currentTime, beatAindex, beatBindex, beatCindex);
@@ -77,6 +121,21 @@ let loop = () => {
             beatCindex++;
         }
     }
+    for(let indexA = 0; indexA < imagesA.length; indexA++) {
+        let beatTime = beatA[indexA];
+        let timeUntilBeat = beatTime - lineIndex;
+
+        let beatId = `imgA${indexA}`;
+        let beatImg = document.getElementById(beatId);
+        if(timeUntilBeat > 0){
+            beatImg.style.left = (timeUntilBeat * DISPLACEMENT_MULTIPLIER + STARTING_POINT) + "px"
+        } else {
+            beatImg.classList.add("hidden");
+        }
+
+    }
+    
+    lineIndex = audioContext.currentTime;
 }
 
 setInterval(loop, 1);
