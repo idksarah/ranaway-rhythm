@@ -13,7 +13,8 @@ let beatBindex = 0;
 let beatCindex = 0;
 
 const MAX_TIME = 5;
-const DISPLACEMENT_MULTIPLIER = 300; // 300px
+const DISPLACEMENT_MULTIPLIER = 500;
+const STARTING_POINT = -500;
 let lineIndex = 0;
 
 let scoreA = 0;
@@ -37,7 +38,6 @@ function incrementScoreC(amount) {
 incrementScoreA(1);
 incrementScoreB(2); 
 incrementScoreC(3);
-
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -68,28 +68,42 @@ document.addEventListener('click', () => {
 
 // Loop
 
-for (let i = 0; i < beatA.length; i++){
+function makeBeatImg() {
     var img = document.createElement("img");
     img.src="./beat.png";
     var src = document.getElementById("music");
+    img.style.position = 'absolute';
     src.append(img);
-    imagesA[`img${i}`] = img;
-    
-} //turn into func later idc rn
+    return img
+}
+
 for (let i = 0; i < beatA.length; i++){
-    var img = document.createElement("img");
-    img.src="./beat.png";
-    var src = document.getElementById("music");
-    src.append(img);
-    imagesB[`img${i}`] = img;
+    img = makeBeatImg()
+    img.id = `imgA${i}`;
+    imagesA[i] = img;
+} 
+for (let i = 0; i < beatA.length; i++){
+    img = makeBeatImg()
+    img.id = `imgB${i}`;
+    imagesB[i] = img;
 }
 for (let i = 0; i < beatA.length; i++){
-    var img = document.createElement("img");
-    img.src="./beat.png";
-    var src = document.getElementById("music");
-    src.append(img);
-    imagesC[`img${i}`] = img;
+    img = makeBeatImg()
+    img.id = `imgC${i}`;
+    imagesC[i] = img;
 }
+
+document.addEventListener('keydown', function(event) {
+    if (event.key == 'w') { // w
+        console.log('left');
+    }
+    if (event.code == 'Space'){ // space
+        console.log('middle');
+    } 
+    if (event.key == 'ArrowUp'){ // top arrow
+        console.log('right');
+    }
+})
 
 let loop = () => {
     //console.log(audioContext.currentTime, beatAindex, beatBindex, beatCindex);
@@ -107,11 +121,20 @@ let loop = () => {
             beatCindex++;
         }
     }
-    for(let indexA = imagesA[0]; indexA < imagesA.length; indexA++) {
-        if(indexA > lineIndex){
-            
+    for(let indexA = 0; indexA < imagesA.length; indexA++) {
+        let beatTime = beatA[indexA];
+        let timeUntilBeat = beatTime - lineIndex;
+
+        let beatId = `imgA${indexA}`;
+        let beatImg = document.getElementById(beatId);
+        if(timeUntilBeat > 0){
+            beatImg.style.left = (timeUntilBeat * DISPLACEMENT_MULTIPLIER + STARTING_POINT) + "px"
+        } else {
+            beatImg.classList.add("hidden");
         }
+
     }
+    
     lineIndex = audioContext.currentTime;
 }
 
