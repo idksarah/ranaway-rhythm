@@ -1,8 +1,8 @@
-const beatA = [5, 6, 9, 10, 12]
+const beatA = [7.04, 9.33, 11.45, 12.17, 12.89, 15.992, 17.14, 17.74, 19,  19.94, 20.46]
 
-const beatB = [5, 6, 8, 9, 11]
+const beatB = [7.86, 10.04, 10.712, 11.45, 12.17, 12.89, 15.992, 16.632, 17.74, 18.36, 19.50, 19.94, 20.46]
 
-const beatC = [5, 6, 8, 9]
+const beatC = [8.57, 10.712, 11.45, 12.17, 12.89, 15.992, 16.632, 17.14, 18.36, 19, 19.94, 20.46]
 
 let imagesA = []
 let imagesB = []
@@ -170,40 +170,41 @@ let loop = () => {
                 beatImg.style.left = (timeUntilBeat * DISPLACEMENT_MULTIPLIER + STARTING_POINT + imgWidth + 550) + "px"
             } else if (!beatImg.classList.contains("hidden")) {
                 beatImg.classList.add("hidden");
-                console.log("Hiding beat A at index:", indexA);
+                //console.log("Hiding beat A at index:", indexA);
                 imageAindex = indexA + 1;
             }
         }
+        imageAindex = Math.min(imageAindex, beatA.length - 1);
         let beatTimeA = beatA[imageAindex];
         let timeUntilBeatA = beatTimeA - lineIndex;
         let beatIdA = `imgA${imageAindex}`;
         let beatImgA = document.getElementById(beatIdA);
         if (wPressedThisCycle && !beatImgA.classList.contains("hidden")) {
-            imageAindex++;
+            imageAindex = Math.min(imageAindex + 1, beatA.length - 1);
             const scoreText = document.getElementById("scoreA");
             if (Math.abs(timeUntilBeatA) < GREAT_TIME) {
-                console.log("Great! on beat A index:", imageAindex);
+                //console.log("Great! on beat A index:", imageAindex);
                 incrementScoreA(300);
                 beatImgA.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-great");
             } else if (Math.abs(timeUntilBeatA) < GOOD_TIME) {
-                console.log("Good! on beat A index:", imageAindex);
+                //console.log("Good! on beat A index:", imageAindex);
                 incrementScoreA(200);
                 beatImgA.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-good");
             } else if (Math.abs(timeUntilBeatA) < OK_TIME) {
-                console.log("Ok! on beat A index:", imageAindex);
+                //console.log("Ok! on beat A index:", imageAindex);
                 incrementScoreA(100);
                 beatImgA.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-ok");
             } else {
-                console.log("Missed! on beat A index:", imageAindex);
+                //console.log("Missed! on beat A index:", imageAindex);
                 beatImgA.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
@@ -226,36 +227,37 @@ let loop = () => {
                 imageBindex = indexB + 1;
             }
         }
+        imageBindex = Math.min(imageBindex, beatB.length - 1);
         let beatTimeB = beatB[imageBindex];
         let timeUntilBeatB = beatTimeB - lineIndex;
         let beatIdB = `imgB${imageBindex}`;
         let beatImgB = document.getElementById(beatIdB);
         if (spacePressedThisCycle && !beatImgB.classList.contains("hidden")) {
-            imageBindex++;
+            imageBindex = Math.min(imageBindex + 1, beatB.length - 1);
             const scoreText = document.getElementById("scoreB");
             if (Math.abs(timeUntilBeatB) < GREAT_TIME) {
-                console.log("Great! on beat B index:", imageBindex);
+                //console.log("Great! on beat B index:", imageBindex);
                 incrementScoreB(300);
                 beatImgB.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-great");
             } else if (Math.abs(timeUntilBeatB) < GOOD_TIME) {
-                console.log("Good! on beat B index:", imageBindex);
+                //console.log("Good! on beat B index:", imageBindex);
                 incrementScoreB(200);
                 beatImgB.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-good");
             } else if (Math.abs(timeUntilBeatB) < OK_TIME) {
-                console.log("Ok! on beat B index:", imageBindex);
+                //console.log("Ok! on beat B index:", imageBindex);
                 incrementScoreB(100);
                 beatImgB.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-ok");
             } else {
-                console.log("Missed! on beat B index:", imageBindex);
+                //console.log("Missed! on beat B index:", imageBindex);
                 beatImgB.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
@@ -274,40 +276,41 @@ let loop = () => {
                 beatImg.style.left = (timeUntilBeat * DISPLACEMENT_MULTIPLIER + STARTING_POINT + imgWidth + 550) + "px"
             } else if (!beatImg.classList.contains("hidden")) {
                 beatImg.classList.add("hidden");
-                console.log("Hiding beat C at index:", indexC);
+                //console.log("Hiding beat C at index:", indexC);
                 imageCindex = indexC + 1;
             }
         }
+        imageCindex = Math.min(imageCindex, beatC.length - 1);
         let beatTimeC = beatC[imageCindex];
         let timeUntilBeatC = beatTimeC - lineIndex;
         let beatIdC = `imgC${imageCindex}`;
         let beatImgC = document.getElementById(beatIdC);
         if (enterPressedThisCycle && !beatImgC.classList.contains("hidden")) {
-            imageCindex++;
+            imageCindex = Math.min(imageCindex + 1, beatC.length - 1);
             const scoreText = document.getElementById("scoreC");
             if (Math.abs(timeUntilBeatC) < GREAT_TIME) {
-                console.log("Great! on beat C index:", imageCindex);
+                //console.log("Great! on beat C index:", imageCindex);
                 incrementScoreC(300);
                 beatImgC.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-great");
             } else if (Math.abs(timeUntilBeatC) < GOOD_TIME) {
-                console.log("Good! on beat C index:", imageCindex);
+                //console.log("Good! on beat C index:", imageCindex);
                 incrementScoreC(200);
                 beatImgC.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-good");
             } else if (Math.abs(timeUntilBeatC) < OK_TIME) {
-                console.log("Ok! on beat C index:", imageCindex);
+                //console.log("Ok! on beat C index:", imageCindex);
                 incrementScoreC(100);
                 beatImgC.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
                 scoreText.classList.add("flash-ok");
             } else {
-                console.log("Missed! on beat C index:", imageCindex);
+                //console.log("Missed! on beat C index:", imageCindex);
                 beatImgC.classList.add("hidden");
                 scoreText.classList.remove("flash-great", "flash-good", "flash-ok", "flash-miss");
                 void scoreText.offsetWidth;
