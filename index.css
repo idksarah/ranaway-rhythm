@@ -1,0 +1,39 @@
+body {
+    background-image: url("bg.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+
+
+.title, .subheading, a {
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.title, .subheading {
+    color: white;
+    text-shadow: 3px 3px 0 #478BE6;
+}
+
+.title {
+    font-size: 5em;
+    margin-bottom: 0;
+}
+
+.subheading, a {
+    font-size: 2em;
+}
+
+a {
+    background-color: #478BE6;
+    padding: .5em 1em .5em 1em;
+    border-radius: 1em;
+    color: white;
+    cursor: pointer;
+}
