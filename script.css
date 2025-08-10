@@ -142,6 +142,19 @@ body {
 	display: flex;
 	flex-direction: column;
 	background: url('bg2.png') center bottom/cover no-repeat fixed;
+	position: relative;
+}
+
+body::after {
+	content: '';
+	pointer-events: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1000;
+	background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.7) 100%);
 }
 
 .vertical-split {

@@ -1,0 +1,12 @@
+/* silhouette.png should be a transparent PNG of a silhouette shape, placed in the project folder. */
+.silhouette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1000;
+  background: url('silhouette.png') center center/contain no-repeat;
+  opacity: 0.5;
+}
