@@ -1,8 +1,8 @@
-const beatA = [1, 4, 5, 8, 10]
+const beatA = [5, 6, 9, 10, 12]
 
-const beatB = [2, 4, 5, 7, 8]
+const beatB = [5, 6, 8, 9, 11]
 
-const beatC = [1, 2, 5, 6]
+const beatC = [5, 6, 8, 9]
 
 let beatAindex = 0;
 let beatBindex = 0;
