@@ -8,6 +8,28 @@ let beatAindex = 0;
 let beatBindex = 0;
 let beatCindex = 0;
 
+let scoreA = 0;
+let scoreB = 0;
+let scoreC = 0;
+
+function incrementScoreA(amount) {
+    scoreA += amount;
+    document.getElementById("scoreA").innerText = scoreA + " pts!";
+}
+function incrementScoreB(amount) {
+    scoreB += amount;
+    document.getElementById("scoreB").innerText = scoreB + " pts!";
+}
+
+function incrementScoreC(amount) {
+    scoreC += amount;
+    document.getElementById("scoreC").innerText = scoreC + " pts!";
+}
+
+incrementScoreA(1);
+incrementScoreB(2); 
+incrementScoreC(3);
+
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
