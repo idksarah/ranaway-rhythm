@@ -1,3 +1,16 @@
+.playable-area {
+	width: 75vw;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.3);
+	position: absolute;
+	left: 25vw;
+	top: 0;
+	bottom: 0;
+}
+
+.vertical-split {
+	position: relative;
+}
 .vertical-bar {
 	position: fixed;
 	top: 0;
