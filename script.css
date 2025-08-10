@@ -1,3 +1,11 @@
+.horizontal-line {
+	border: none;
+	border-top: 3px solid #222;
+	margin: 0;
+	width: 100%;
+	position: relative;
+	z-index: 20;
+}
 .vertical-split:not(:last-child) {
 	/* removed old border style for wood plank effect */
 /* Wood plank style for vertical and horizontal borders */
@@ -93,4 +101,8 @@ body {
 .vertical-split {
 	flex: 1;
 	width: 100%;
+}
+
+.hidden {
+    display: none;
 }
