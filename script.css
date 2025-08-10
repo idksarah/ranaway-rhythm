@@ -1,3 +1,38 @@
+.vertical-split:not(:last-child) {
+	/* removed old border style for wood plank effect */
+/* Wood plank style for vertical and horizontal borders */
+.vertical-bar {
+	position: fixed;
+	top: 0;
+	left: 25vw;
+	width: 24px;
+	height: 100vh;
+	background: url('wood.png') center center/cover repeat-y, #a0522d;
+	box-shadow: 0 0 8px 2px #7b3f00 inset, 0 0 6px 2px #deb887;
+	border-left: 2px solid #7b3f00;
+	border-right: 2px solid #deb887;
+	z-index: 10;
+}
+
+.vertical-split:not(:last-child) {
+	border-bottom: 24px solid transparent;
+	box-sizing: border-box;
+	position: relative;
+}
+.vertical-split:not(:last-child)::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -24px;
+	height: 24px;
+	background: url('wood.png') center center/cover repeat-x, #a0522d;
+	box-shadow: 0 2px 8px 0 #7b3f00 inset, 0 0 6px 2px #deb887;
+	border-top: 2px solid #deb887;
+	border-bottom: 2px solid #7b3f00;
+	z-index: 20;
+}
+}
 .score-text {
 	position: absolute;
 	left: 50%;
@@ -13,7 +48,7 @@
 .profile-area {
 	width: 25vw;
 	height: 100%;
-	
+	background: rgba(255, 255, 255, 0.3);
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -23,7 +58,7 @@
 .playable-area {
 	width: 75vw;
 	height: 100%;
-	background: rgba(255, 255, 255, 0.3);
+	
 	position: absolute;
 	left: 25vw;
 	top: 0;
@@ -52,19 +87,10 @@ body {
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
+	background: url('bg2.png') center bottom/cover no-repeat fixed;
 }
 
 .vertical-split {
 	flex: 1;
 	width: 100%;
-}
-
-.top {
-	background: #f8b60044 url('bg.png') center bottom/cover no-repeat;
-}
-.middle {
-	background: #6a89cc45 url('bg.png') center bottom/cover no-repeat;
-}
-.bottom {
-	background: #38ada93c url('bg.png') center bottom/cover no-repeat;
 }
