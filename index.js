@@ -4,9 +4,18 @@ const beatB = [2, 4, 5, 7, 8]
 
 const beatC = [1, 2, 5, 6]
 
+let imagesA = []
+let imagesB = []
+let imagesC = []
+
 let beatAindex = 0;
 let beatBindex = 0;
 let beatCindex = 0;
+
+const MAX_TIME = 5;
+const DISPLACEMENT_MULTIPLIER = 300; // 300px
+let lineIndex = 0;
+
 
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -38,6 +47,28 @@ document.addEventListener('click', () => {
 
 // Loop
 
+for (let i = 0; i < beatA.length; i++){
+    var img = document.createElement("img");
+    img.src="./beat.png";
+    var src = document.getElementById("music");
+    src.append(img);
+    imagesA[`img${i}`] = img;
+    
+} //turn into func later idc rn
+for (let i = 0; i < beatA.length; i++){
+    var img = document.createElement("img");
+    img.src="./beat.png";
+    var src = document.getElementById("music");
+    src.append(img);
+    imagesB[`img${i}`] = img;
+}
+for (let i = 0; i < beatA.length; i++){
+    var img = document.createElement("img");
+    img.src="./beat.png";
+    var src = document.getElementById("music");
+    src.append(img);
+    imagesC[`img${i}`] = img;
+}
 
 let loop = () => {
     //console.log(audioContext.currentTime, beatAindex, beatBindex, beatCindex);
@@ -55,6 +86,12 @@ let loop = () => {
             beatCindex++;
         }
     }
+    for(let indexA = imagesA[0]; indexA < imagesA.length; indexA++) {
+        if(indexA > lineIndex){
+            
+        }
+    }
+    lineIndex = audioContext.currentTime;
 }
 
 setInterval(loop, 1);
