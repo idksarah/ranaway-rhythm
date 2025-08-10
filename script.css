@@ -1,0 +1,35 @@
+.vertical-bar {
+	position: fixed;
+	top: 0;
+	left: 25vw;
+	width: 4px;
+	height: 100vh;
+	background: #222;
+	z-index: 10;
+}
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.vertical-split {
+	flex: 1;
+	width: 100%;
+}
+
+.top {
+	background: #f8b60044;
+}
+.middle {
+	background: #6a89cc45;
+}
+.bottom {
+	background: #38ada93c;
+}
