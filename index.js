@@ -23,16 +23,16 @@ let scoreC = 0;
 
 function incrementScoreA(amount) {
     scoreA += amount;
-    document.getElementById("scoreA").innerText = scoreA + " pts!";
+    document.getElementById("scoreA").innerText = scoreA + " pts";
 }
 function incrementScoreB(amount) {
     scoreB += amount;
-    document.getElementById("scoreB").innerText = scoreB + " pts!";
+    document.getElementById("scoreB").innerText = scoreB + " pts";
 }
 
 function incrementScoreC(amount) {
     scoreC += amount;
-    document.getElementById("scoreC").innerText = scoreC + " pts!";
+    document.getElementById("scoreC").innerText = scoreC + " pts";
 }
 
 incrementScoreA(1);

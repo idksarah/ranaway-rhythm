@@ -60,11 +60,11 @@ body {
 }
 
 .top {
-	background: #f8b60044;
+	background: #f8b60044 url('bg.png') center bottom/cover no-repeat;
 }
 .middle {
-	background: #6a89cc45;
+	background: #6a89cc45 url('bg.png') center bottom/cover no-repeat;
 }
 .bottom {
-	background: #38ada93c;
+	background: #38ada93c url('bg.png') center bottom/cover no-repeat;
 }
