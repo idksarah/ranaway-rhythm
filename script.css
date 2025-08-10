@@ -1,3 +1,42 @@
+.profile-boat {
+	display: block;
+	margin: 0 auto 10px auto;
+	max-width: 60px;
+	max-height: 60px;
+}
+.score-text.flash-great {
+	animation: flash-great 0.3s;
+}
+.score-text.flash-good {
+	animation: flash-good 0.3s;
+}
+.score-text.flash-ok {
+	animation: flash-ok 0.3s;
+}
+.score-text.flash-miss {
+	animation: flash-miss 0.3s;
+}
+
+@keyframes flash-great {
+	0% { background: #fff; }
+	50% { background: #4fff4f; }
+	100% { background: #fff; }
+}
+@keyframes flash-good {
+	0% { background: #fff; }
+	50% { background: #ffe94f; }
+	100% { background: #fff; }
+}
+@keyframes flash-ok {
+	0% { background: #fff; }
+	50% { background: #4faaff; }
+	100% { background: #fff; }
+}
+@keyframes flash-miss {
+	0% { background: #fff; }
+	50% { background: #ff4f4f; }
+	100% { background: #fff; }
+}
 .horizontal-line {
 	border: none;
 	border-top: 3px solid #222;
@@ -42,10 +81,13 @@
 }
 }
 .score-text {
-	position: absolute;
-	left: 50%;
-	top: 75%;
-	transform: translate(-50%, -50%);
+	background: #fff;
+	padding: 5px;
+	border-radius: 6px;
+	position: static;
+	left: auto;
+	top: auto;
+	transform: none;
 	width: max-content;
 	margin: 0;
 	font-size: 2rem;
@@ -56,17 +98,21 @@
 .profile-area {
 	width: 25vw;
 	height: 100%;
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(0, 0, 0, 0.2);
 	position: absolute;
 	left: 0;
 	top: 0;
 	bottom: 0;
 	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 .playable-area {
 	width: 75vw;
 	height: 100%;
-	
+	background-color: rgba(0, 0, 0, 0.2);
 	position: absolute;
 	left: 25vw;
 	top: 0;
