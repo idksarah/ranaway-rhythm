@@ -1,8 +1,8 @@
-const beatA = [1, 4, 5, 8, 10]
+const beatA = [5, 6, 9, 10, 12]
 
-const beatB = [2, 4, 5, 7, 8]
+const beatB = [5, 6, 8, 9, 11]
 
-const beatC = [1, 2, 5, 6]
+const beatC = [5, 6, 8, 9]
 
 let imagesA = []
 let imagesB = []
@@ -16,6 +16,27 @@ const MAX_TIME = 5;
 const DISPLACEMENT_MULTIPLIER = 300; // 300px
 let lineIndex = 0;
 
+let scoreA = 0;
+let scoreB = 0;
+let scoreC = 0;
+
+function incrementScoreA(amount) {
+    scoreA += amount;
+    document.getElementById("scoreA").innerText = scoreA + " pts!";
+}
+function incrementScoreB(amount) {
+    scoreB += amount;
+    document.getElementById("scoreB").innerText = scoreB + " pts!";
+}
+
+function incrementScoreC(amount) {
+    scoreC += amount;
+    document.getElementById("scoreC").innerText = scoreC + " pts!";
+}
+
+incrementScoreA(1);
+incrementScoreB(2); 
+incrementScoreC(3);
 
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
