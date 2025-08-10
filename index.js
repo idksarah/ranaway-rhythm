@@ -1,10 +1,12 @@
-console.log("FUCK")
+const beatA = [1, 4, 5, 8, 10]
 
-const beatA = new Set([1, 4, 5, 8, 10])
+const beatB = [2, 4, 5, 7, 8]
 
-const beatB = new Set([2, 4, 5, 7, 8])
+const beatC = [1, 2, 5, 6]
 
-const beatC = new Set([1, 2, 5, 6])
+let beatAindex = 0;
+let beatBindex = 0;
+let beatCindex = 0;
 
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -30,6 +32,7 @@ function playAudio(buffer, when = 0) {
 document.addEventListener('click', () => {
     if (audioContext.state === 'suspended') {
         audioContext.resume();
+        console.log("Audio context resumed");
     }
 });
 
@@ -37,9 +40,21 @@ document.addEventListener('click', () => {
 
 
 let loop = () => {
-
-    
-
+    //console.log(audioContext.currentTime, beatAindex, beatBindex, beatCindex);
+    if(audioContext.state == 'running') {
+        if(beatAindex < beatA.length && audioContext.currentTime > beatA[beatAindex]) {
+            console.log("Playing beat A at index:", beatAindex);
+            beatAindex++;
+        }
+        if(beatBindex < beatB.length && audioContext.currentTime > beatB[beatBindex]) {
+            console.log("Playing beat B at index:", beatBindex);
+            beatBindex++;
+        }
+        if(beatCindex < beatC.length && audioContext.currentTime > beatC[beatCindex]) {
+            console.log("Playing beat C at index:", beatCindex);
+            beatCindex++;
+        }
+    }
 }
 
 setInterval(loop, 1);
